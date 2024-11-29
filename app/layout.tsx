@@ -3,6 +3,7 @@ import localFont from "next/font/local";
 const PoetsenOne = localFont({ src: "./fonts/PoetsenOne-Regular.ttf" });
 
 import "./globals.css";
+import Header from "./components/Header/Header";
 
 const viewport: Viewport = {
   themeColor: "#E4383B",
@@ -20,7 +21,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es">
-      <body className={`${PoetsenOne.className} antialiased`}>{children}</body>
+      <body className={`${PoetsenOne.className} antialiased pt-36`}>
+        <Header />
+
+        {children}
+      </body>
     </html>
   );
 }

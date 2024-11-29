@@ -2,6 +2,523 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --water: #5090d6;
+  --water-rgb: 80, 144, 214;
+  --dragon: #0b6dc3;
+  --dragon-rgb: 11, 109, 195;
+  --electric: #f4d23c;
+  --electric-rgb: 244, 210, 60;
+  --fairy: #ec8fe6;
+  --fairy-rgb: 236, 143, 230;
+  --ghost: #5269ad;
+  --ghost-rgb: 82, 105, 173;
+  --fire: #ff9d55;
+  --fire-rgb: 255, 157, 85;
+  --ice: #73cec0;
+  --ice-rgb: 115, 206, 192;
+  --grass: #63bc5a;
+  --grass-rgb: 99, 188, 90;
+  --bug: #91c12f;
+  --bug-rgb: 145, 193, 47;
+  --fighting: #ce416b;
+  --fighting-rgb: 206, 65, 107;
+  --normal: #919aa2;
+  --normal-rgb: 145, 154, 162;
+  --dark: #5a5465;
+  --dark-rgb: 90, 84, 101;
+  --metal: #5a8ea2;
+  --metal-rgb: 90, 142, 162;
+  --stone: #c5b78c;
+  --stone-rgb: 197, 183, 140;
+  --psychic: #fa7179;
+  --psychic-rgb: 250, 113, 121;
+  --earth: #d97845;
+  --earth-rgb: 217, 120, 69;
+  --poison: #b567ce;
+  --poison-rgb: 181, 103, 206;
+  --flying: #89aae3;
+  --flying-rgb: 137, 170, 227;
+
+  --inanimate: #ddd;
+  --inanimate-rgb: 200, 200, 200;
+}
+
 body {
   background-color: #f1f1f1;
+}
+
+.bg-water {
+  background: linear-gradient(
+    to right,
+    rgba(var(--water-rgb), 0.15),
+    rgba(var(--water-rgb), 1)
+  );
+  position: relative;
+  &:after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 12px;
+    left: 0;
+    bottom: 12px;
+    right: 0;
+    background-image: url("/water.svg");
+    background-size: auto 100%;
+    background-repeat: no-repeat;
+    /* left middle */
+    background-position: 33.33% 50%;
+    z-index: -1;
+    opacity: 0.3;
+  }
+}
+
+.bg-dragon {
+  background: linear-gradient(
+    to right,
+    rgba(var(--dragon-rgb), 0.15),
+    rgba(var(--dragon-rgb), 1)
+  );
+  position: relative;
+  &:after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 12px;
+    left: 0;
+    bottom: 12px;
+    right: 0;
+    background-image: url("/dragon.svg");
+    background-size: auto 100%;
+    background-repeat: no-repeat;
+    /* left middle */
+    background-position: 33.33% 50%;
+    z-index: -1;
+    opacity: 0.3;
+  }
+}
+
+.bg-electric {
+  background: linear-gradient(
+    to right,
+    rgba(var(--electric-rgb), 0.15),
+    rgba(var(--electric-rgb), 1)
+  );
+  position: relative;
+  &:after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 12px;
+    left: 0;
+    bottom: 12px;
+    right: 0;
+    background-image: url("/electric.svg");
+    background-size: auto 100%;
+    background-repeat: no-repeat;
+    /* left middle */
+    background-position: 33.33% 50%;
+    z-index: -1;
+    opacity: 0.3;
+  }
+}
+
+.bg-fairy {
+  background: linear-gradient(
+    to right,
+    rgba(var(--fairy-rgb), 0.15),
+    rgba(var(--fairy-rgb), 1)
+  );
+  position: relative;
+  &:after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 12px;
+    left: 0;
+    bottom: 12px;
+    right: 0;
+    background-image: url("/fairy.svg");
+    background-size: auto 100%;
+    background-repeat: no-repeat;
+    /* left middle */
+    background-position: 33.33% 50%;
+    z-index: -1;
+    opacity: 0.3;
+  }
+}
+
+.bg-ghost {
+  background: linear-gradient(
+    to right,
+    rgba(var(--ghost-rgb), 0.15),
+    rgba(var(--ghost-rgb), 1)
+  );
+  position: relative;
+  &:after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 12px;
+    left: 0;
+    bottom: 12px;
+    right: 0;
+    background-image: url("/ghost.svg");
+    background-size: auto 100%;
+    background-repeat: no-repeat;
+    /* left middle */
+    background-position: 33.33% 50%;
+    z-index: -1;
+    opacity: 0.3;
+  }
+}
+
+.bg-fire {
+  background: linear-gradient(
+    to right,
+    rgba(var(--fire-rgb), 0.15),
+    rgba(var(--fire-rgb), 1)
+  );
+  position: relative;
+  &:after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 12px;
+    left: 0;
+    bottom: 12px;
+    right: 0;
+    background-image: url("/fire.svg");
+    background-size: auto 100%;
+    background-repeat: no-repeat;
+    /* left middle */
+    background-position: 33.33% 50%;
+    z-index: -1;
+    opacity: 0.3;
+  }
+}
+
+.bg-ice {
+  background: linear-gradient(
+    to right,
+    rgba(var(--ice-rgb), 0.15),
+    rgba(var(--ice-rgb), 1)
+  );
+  position: relative;
+  &:after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 12px;
+    left: 0;
+    bottom: 12px;
+    right: 0;
+    background-image: url("/ice.svg");
+    background-size: auto 100%;
+    background-repeat: no-repeat;
+    /* left middle */
+    background-position: 33.33% 50%;
+    z-index: -1;
+    opacity: 0.3;
+  }
+}
+
+.bg-grass {
+  background: linear-gradient(
+    to right,
+    rgba(var(--grass-rgb), 0.15),
+    rgba(var(--grass-rgb), 1)
+  );
+  position: relative;
+  &:after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 12px;
+    left: 0;
+    bottom: 12px;
+    right: 0;
+    background-image: url("/grass.svg");
+    background-size: auto 100%;
+    background-repeat: no-repeat;
+    /* left middle */
+    background-position: 33.33% 50%;
+    z-index: -1;
+    opacity: 0.3;
+  }
+}
+
+.bg-bug {
+  background: linear-gradient(
+    to right,
+    rgba(var(--bug-rgb), 0.15),
+    rgba(var(--bug-rgb), 1)
+  );
+  position: relative;
+  &:after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 12px;
+    left: 0;
+    bottom: 12px;
+    right: 0;
+    background-image: url("/bug.svg");
+    background-size: auto 100%;
+    background-repeat: no-repeat;
+    /* left middle */
+    background-position: 33.33% 50%;
+    z-index: -1;
+    opacity: 0.3;
+  }
+}
+
+.bg-fighting {
+  background: linear-gradient(
+    to right,
+    rgba(var(--fighting-rgb), 0.15),
+    rgba(var(--fighting-rgb), 1)
+  );
+  position: relative;
+  &:after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 12px;
+    left: 0;
+    bottom: 12px;
+    right: 0;
+    background-image: url("/fighting.svg");
+    background-size: auto 100%;
+    background-repeat: no-repeat;
+    /* left middle */
+    background-position: 33.33% 50%;
+    z-index: -1;
+    opacity: 0.3;
+  }
+}
+
+.bg-normal {
+  background: linear-gradient(
+    to right,
+    rgba(var(--normal-rgb), 0.15),
+    rgba(var(--normal-rgb), 1)
+  );
+  position: relative;
+  &:after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 12px;
+    left: 0;
+    bottom: 12px;
+    right: 0;
+    background-image: url("/normal.svg");
+    background-size: auto 100%;
+    background-repeat: no-repeat;
+    /* left middle */
+    background-position: 33.33% 50%;
+    z-index: -1;
+    opacity: 0.3;
+  }
+}
+
+.bg-dark {
+  background: linear-gradient(
+    to right,
+    rgba(var(--dark-rgb), 0.15),
+    rgba(var(--dark-rgb), 1)
+  );
+  position: relative;
+  &:after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 12px;
+    left: 0;
+    bottom: 12px;
+    right: 0;
+    background-image: url("/dark.svg");
+    background-size: auto 100%;
+    background-repeat: no-repeat;
+    /* left middle */
+    background-position: 33.33% 50%;
+    z-index: -1;
+    opacity: 0.3;
+  }
+}
+
+.bg-metal {
+  background: linear-gradient(
+    to right,
+    rgba(var(--metal-rgb), 0.15),
+    rgba(var(--metal-rgb), 1)
+  );
+  position: relative;
+  &:after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 12px;
+    left: 0;
+    bottom: 12px;
+    right: 0;
+    background-image: url("/metal.svg");
+    background-size: auto 100%;
+    background-repeat: no-repeat;
+    /* left middle */
+    background-position: 33.33% 50%;
+    z-index: -1;
+    opacity: 0.3;
+  }
+}
+
+.bg-stone {
+  background: linear-gradient(
+    to right,
+    rgba(var(--stone-rgb), 0.15),
+    rgba(var(--stone-rgb), 1)
+  );
+  position: relative;
+  &:after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 12px;
+    left: 0;
+    bottom: 12px;
+    right: 0;
+    background-image: url("/stone.svg");
+    background-size: auto 100%;
+    background-repeat: no-repeat;
+    /* left middle */
+    background-position: 33.33% 50%;
+    z-index: -1;
+    opacity: 0.3;
+  }
+}
+
+.bg-psychic {
+  background: linear-gradient(
+    to right,
+    rgba(var(--psychic-rgb), 0.15),
+    rgba(var(--psychic-rgb), 1)
+  );
+  position: relative;
+  &:after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 12px;
+    left: 0;
+    bottom: 12px;
+    right: 0;
+    background-image: url("/psychic.svg");
+    background-size: auto 100%;
+    background-repeat: no-repeat;
+    /* left middle */
+    background-position: 33.33% 50%;
+    z-index: -1;
+    opacity: 0.3;
+  }
+}
+
+.bg-earth {
+  background: linear-gradient(
+    to right,
+    rgba(var(--earth-rgb), 0.15),
+    rgba(var(--earth-rgb), 1)
+  );
+  position: relative;
+  &:after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 12px;
+    left: 0;
+    bottom: 12px;
+    right: 0;
+    background-image: url("/ground.svg");
+    background-size: auto 100%;
+    background-repeat: no-repeat;
+    /* left middle */
+    background-position: 33.33% 50%;
+    z-index: -1;
+    opacity: 0.3;
+  }
+}
+
+.bg-ground {
+  background: linear-gradient(
+    to right,
+    rgba(var(--earth-rgb), 0.15),
+    rgba(var(--earth-rgb), 1)
+  );
+  position: relative;
+  &:after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 12px;
+    left: 0;
+    bottom: 12px;
+    right: 0;
+    background-image: url("/ground.svg");
+    background-size: auto 100%;
+    background-repeat: no-repeat;
+    /* left middle */
+    background-position: 33.33% 50%;
+    z-index: -1;
+    opacity: 0.3;
+  }
+}
+
+.bg-poison {
+  background: linear-gradient(
+    to right,
+    rgba(var(--poison-rgb), 0.15),
+    rgba(var(--poison-rgb), 1)
+  );
+  position: relative;
+  &:after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 12px;
+    left: 0;
+    bottom: 12px;
+    right: 0;
+    background-image: url("/poison.svg");
+    background-size: auto 100%;
+    background-repeat: no-repeat;
+    /* left middle */
+    background-position: 33.33% 50%;
+    z-index: -1;
+    opacity: 0.3;
+  }
+}
+
+.bg-flying {
+  background: linear-gradient(
+    to right,
+    rgba(var(--flying-rgb), 0.15),
+    rgba(var(--flying-rgb), 1)
+  );
+  position: relative;
+  &:after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 12px;
+    left: 0;
+    bottom: 12px;
+    right: 0;
+    background-image: url("/flying.svg");
+    background-size: auto 100%;
+    background-repeat: no-repeat;
+    /* left middle */
+    background-position: 33.33% 50%;
+    z-index: -1;
+    opacity: 0.3;
+  }
 }

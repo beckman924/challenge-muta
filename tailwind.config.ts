@@ -18,6 +18,9 @@ export default {
         "header-left": "url('/header-top-left.svg')",
         "header-right": "url('/header-top-right.svg')",
       },
+      gridTemplateColumns: {
+        "pokemon-list": "repeat(auto-fit, minmax(200px, 1fr))",
+      },
     },
   },
   plugins: [addIconSelectors(["uil"])],
