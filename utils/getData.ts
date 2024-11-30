@@ -12,19 +12,59 @@ import {
  * Fetches all Pokémon data from the API and formats it.
  * @returns An array of objects with the following properties: id, name, image, types.
  */
-export const getAllData = async () => {
+export const getAllData = async (name?: string) => {
   try {
+    if (name) {
+      const res = await fetch(`${API_URL}/${name}`);
+      if (!res.ok) {
+        return [];
+      }
+
+      const pokemonData = await res.json();
+
+      if (!pokemonData) {
+        return [];
+      }
+
+      const pokemon: Pokemon = {
+        id: pokemonData.id,
+        name: pokemonData.name,
+        image: pokemonData.sprites?.other?.["official-artwork"]?.front_default,
+        types: pokemonData.types,
+      };
+
+      return [pokemon];
+    } else {
+    }
+
     const res = await fetch(`${API_URL}?limit=20`);
+
+    if (!res.ok) {
+      return [];
+    }
+
     const { results }: APIResponse = await res.json();
+
+    if (!results) {
+      return [];
+    }
 
     const pokemonList: Pokemon[] = await Promise.all(
       results.map(async (pokemon) => {
+        if (!pokemon.url) {
+          throw new Error(`No URL found for ${pokemon.name}`);
+        }
+
         const pokemonData = await fetch(pokemon.url).then((res) => res.json());
+        if (!pokemonData) {
+          throw new Error(`No data found for ${pokemon.name}`);
+        }
 
         return {
           id: pokemonData.id,
           name: pokemon.name,
-          image: pokemonData.sprites.other["official-artwork"].front_default,
+          image:
+            pokemonData.sprites?.other?.["official-artwork"]?.front_default,
           types: pokemonData.types,
         };
       })
@@ -32,7 +72,8 @@ export const getAllData = async () => {
 
     return pokemonList;
   } catch (error) {
-    console.log(error);
+    console.error(error);
+    return [];
   }
 };
 
