@@ -1,6 +1,6 @@
 import { getPokemonData } from "@/utils/getData";
 
-import FullCard from "@/components/FullCard/FullCard";
+import FullCard from "@/components/FullCard";
 
 import { FullPokemon } from "@/types/types";
 

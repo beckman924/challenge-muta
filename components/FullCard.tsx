@@ -5,8 +5,8 @@ import { useRouter } from "next/navigation";
 
 import { motion } from "framer-motion";
 
-import Stats from "@/components/Stats/Stats";
-import RadarChart from "@/components/RadarChart/RadarChart";
+import Stats from "@/components/Stats";
+import RadarChart from "@/components/RadarChart";
 
 import { pad } from "@/utils/pad";
 

@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 
-import Card from "@/components/Card/Card";
+import Card from "@/components/Card";
 import { Pokemon } from "@/types/types";
 
 export default function PokemonList({
@@ -23,7 +23,7 @@ export default function PokemonList({
       }}
       initial="hidden"
       animate="visible"
-      className={`grid grid-cols-pokemon-list px-4 gap-4`}
+      className="grid grid-cols-pokemon-list px-4 gap-4"
     >
       {pokemonList.map((pokemon) => (
         <Card key={pokemon.id} pokemon={pokemon} />

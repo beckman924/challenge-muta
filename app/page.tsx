@@ -1,7 +1,7 @@
-import Header from "@/components/Header/Header";
-import Searchbar from "@/components/Searchbar/Searchbar";
-import PokemonList from "@/components/PokemonList/PokemonList";
-import Pagination from "@/components/Pagination/Pagination";
+import Header from "@/components/Header";
+import Searchbar from "@/components/Searchbar";
+import PokemonList from "@/components/PokemonList";
+import Pagination from "@/components/Pagination";
 
 import { getAllData } from "@/utils/getData";
 
