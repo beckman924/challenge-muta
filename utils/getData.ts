@@ -1,5 +1,5 @@
 import { API_URL } from "@/lib/constants";
-import { formatText } from "./formatText";
+import { formatText } from "@/utils/formatText";
 
 import {
   APIResponse,
@@ -10,9 +10,12 @@ import {
 
 /**
  * Fetches all Pokémon data from the API and formats it.
- * @returns An array of objects with the following properties: id, name, image, types.
+ * @param name The name of the Pokémon to retrieve data for.
+ * @param page The page number of the list of Pokémon to retrieve data for.
+ * @returns An object with the following properties: count, next, previous, results.
+ * @throws {Error} If no data found for the specified Pokémon or if no species data found.
  */
-export const getAllData = async (name?: string) => {
+export const getAllData = async (name?: string, page?: number) => {
   try {
     if (name) {
       const res = await fetch(`${API_URL}/${name}`);
@@ -34,7 +37,48 @@ export const getAllData = async (name?: string) => {
       };
 
       return [pokemon];
-    } else {
+    } else if (page) {
+      const res = await fetch(`${API_URL}?offset=${(page - 1) * 20}&limit=20`);
+
+      if (!res.ok) {
+        return [];
+      }
+
+      const data: APIResponse = await res.json();
+
+      if (!data) {
+        return [];
+      }
+
+      const pokemonList: Pokemon[] = await Promise.all(
+        data.results.map(async (pokemon) => {
+          if (!pokemon.url) {
+            throw new Error(`No URL found for ${pokemon.name}`);
+          }
+
+          const pokemonData = await fetch(pokemon.url).then((res) =>
+            res.json()
+          );
+          if (!pokemonData) {
+            throw new Error(`No data found for ${pokemon.name}`);
+          }
+
+          return {
+            id: pokemonData.id,
+            name: pokemon.name,
+            image:
+              pokemonData.sprites?.other?.["official-artwork"]?.front_default,
+            types: pokemonData.types,
+          };
+        })
+      );
+
+      return {
+        results: pokemonList,
+        count: data.count,
+        next: data.next,
+        previous: data.previous,
+      };
     }
 
     const res = await fetch(`${API_URL}?limit=20`);
@@ -43,14 +87,14 @@ export const getAllData = async (name?: string) => {
       return [];
     }
 
-    const { results }: APIResponse = await res.json();
+    const data: APIResponse = await res.json();
 
-    if (!results) {
+    if (!data) {
       return [];
     }
 
     const pokemonList: Pokemon[] = await Promise.all(
-      results.map(async (pokemon) => {
+      data.results.map(async (pokemon) => {
         if (!pokemon.url) {
           throw new Error(`No URL found for ${pokemon.name}`);
         }
@@ -70,7 +114,12 @@ export const getAllData = async (name?: string) => {
       })
     );
 
-    return pokemonList;
+    return {
+      results: pokemonList,
+      count: data.count,
+      next: data.next,
+      previous: data.previous,
+    };
   } catch (error) {
     console.error(error);
     return [];
