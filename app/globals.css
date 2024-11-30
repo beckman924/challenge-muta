@@ -522,3 +522,14 @@ body {
     opacity: 0.3;
   }
 }
+
+.responsive-chart {
+  @media (width <= 768px) {
+    width: 300px !important;
+    height: 300px !important;
+  }
+  @media (width <= 480px) {
+    width: 400px !important;
+    height: 400px !important;
+  }
+}
