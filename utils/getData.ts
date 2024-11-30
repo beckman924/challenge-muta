@@ -1,3 +1,4 @@
+import { API_URL } from "@/lib/constants";
 import { formatText } from "./formatText";
 
 import {
@@ -13,7 +14,7 @@ import {
  */
 export const getAllData = async () => {
   try {
-    const res = await fetch(`${process.env.API_URL}?limit=20`);
+    const res = await fetch(`${API_URL}?limit=20`);
     const { results }: APIResponse = await res.json();
 
     const pokemonList: Pokemon[] = await Promise.all(
@@ -45,7 +46,7 @@ export const getPokemonData = async (
   name: string
 ): Promise<FullPokemon | null> => {
   try {
-    const res = await fetch(`${process.env.API_URL}/${name}`);
+    const res = await fetch(`${API_URL}/${name}`);
     const pokemonData = await res.json();
 
     if (!pokemonData) {
