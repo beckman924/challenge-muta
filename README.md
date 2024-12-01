@@ -33,6 +33,13 @@ The goal of this application is to demonstrate basic skills in:
 
 ## Installation and Execution
 
+### Live Demo
+You can explore the deployed version of the project at the following link:
+
+➡️ [Live Demo - Challenge Muta](https://challenge-muta.vercel.app/)
+
+### Run Locally
+
 Follow these steps to run the application in your local environment:
 
 1. Clone this repository:
@@ -71,7 +78,7 @@ The project is organized into the following components:
 - Search Bar: Allows you to search and filter Pokémon by name.
 - Pagination: Controls navigation between Pokémon pages.
 
-## Testing
+## Testing (WIP)
 
 The project includes tests to verify the correct functioning of the components and the interaction with the API.
 
