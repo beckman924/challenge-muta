@@ -34,6 +34,7 @@ The goal of this application is to demonstrate basic skills in:
 ## Installation and Execution
 
 ### Live Demo
+
 You can explore the deployed version of the project at the following link:
 
 ➡️ [Live Demo - Challenge Muta](https://challenge-muta.vercel.app/)
@@ -52,7 +53,7 @@ cd challenge-muta
 2. Install the dependencies:
 
 ```
-npm install
+npm install --force
 ```
 
 3. Launch the application:
